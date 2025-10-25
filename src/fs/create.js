@@ -6,12 +6,14 @@ const __dirname = import.meta.dirname;
 const filePath = path.join(__dirname, 'files', 'fresh.txt');
 
 const create = async () => {
+  let fileHandle;
   try {
-    const fd = await fs.open(filePath, 'wx');
-    await fd.writeFile('I am fresh and young');
-    await fd.close();
+    fileHandle = await fs.open(filePath, 'wx');
+    await fileHandle.writeFile('I am fresh and young');
   } catch {
     throw new Error(errors.fsOperationFailed);
+  } finally {
+    await fileHandle?.close();
   }
 };
 
