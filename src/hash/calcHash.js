@@ -1,7 +1,7 @@
 import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { errors } from '../constants/errors';
+import { errors } from '../constants/errors.js';
 
 const __dirname = import.meta.dirname;
 const filePath = path.join(__dirname, 'files', 'fileToCalculateHashFor.txt');
