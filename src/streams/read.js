@@ -11,7 +11,6 @@ const read = async () => {
 
     for await (const chunk of stream) {
       process.stdout.write(chunk);
-
     }
 
     process.stdout.write('\n');
